@@ -1,4 +1,4 @@
-package Banco1;
+package Banco;
 
 public class ContaPoupanca extends Conta {
 	

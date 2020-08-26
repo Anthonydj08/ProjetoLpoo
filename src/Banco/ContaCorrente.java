@@ -1,12 +1,15 @@
 package Banco;
 
+import Exceptions.SaldoException;
+import Exceptions.SaqueNegativoException;
+
 public class ContaCorrente extends Conta {
 
 	public ContaCorrente(String numero, Banco banco, double saldo, Cliente titular) {
 		super(numero, banco, saldo, titular);
 	}
 
-	public void realizasaque(double saque) throws SaldoException {
+	public void realizasaque(double saque) throws SaldoException, SaqueNegativoException {
 
 		if (saque > this.saldo) {
             throw new SaldoException();
