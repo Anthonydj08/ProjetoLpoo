@@ -5,8 +5,8 @@ import Exceptions.SaqueNegativoException;
 
 public class ContaCorrente extends Conta {
 
-	public ContaCorrente(String numero, Banco banco, double saldo, Cliente titular) {
-		super(numero, banco, saldo, titular);
+	public ContaCorrente(String numero, double saldo, Cliente cliente, Banco banco) {
+		super(numero, saldo, cliente, banco);
 	}
 
 	public void realizasaque(double saque) throws SaldoException, SaqueNegativoException {

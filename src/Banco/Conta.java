@@ -32,10 +32,10 @@ public abstract class Conta implements InterfaceConta {
 		this.banco = banco;
 	}
 	
-	public Conta(String numero,Banco banco,double saldo,Cliente titular) {
+	public Conta(String numero, double saldo, Cliente titular, Banco banco) {
 		this.numero = numero;
-		this.banco = banco;
 		this.saldo = saldo;
 		this.titular = titular;
+		this.banco = banco;
 	}
 }
