@@ -1,11 +1,12 @@
 package Exceptions;
 
-public class SaqueNegativoException extends Exception {
+public class JurosException extends Exception {
 
     private static final long serialVersionUID = 1L;
 
     @Override
     public String getMessage() {
-        return "Saque não pode ser negativo.";
+        return "Digite um valor entre 0.1 e 100.";
     }
+
 }

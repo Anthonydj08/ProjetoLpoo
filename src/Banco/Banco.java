@@ -21,5 +21,4 @@ public class Banco {
 		this.agencia = agencia;
 		this.nomeagencia = nomeagencia;
 	}
-
 }

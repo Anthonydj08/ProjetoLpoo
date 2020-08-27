@@ -2,7 +2,7 @@ import Banco.Conta;
 import Banco.ContaCorrente;
 import Banco.ContaPoupanca;
 import Exceptions.SaldoException;
-import Exceptions.SaqueNegativoException;
+import Exceptions.ValorNegativoException;
 import Banco.Banco;
 import Banco.Cliente;
 import java.util.ArrayList;
@@ -10,8 +10,8 @@ import java.util.Scanner;
 
 public class Teste {
 
-    public static void main(String[] args) throws SaldoException, SaqueNegativoException {
-
+    public static void main(String[] args) throws SaldoException, ValorNegativoException {
+        
         Scanner scanner = new Scanner(System.in);
         ArrayList<Conta> lista = new ArrayList<Conta>(10);
         int opcao = 0;
