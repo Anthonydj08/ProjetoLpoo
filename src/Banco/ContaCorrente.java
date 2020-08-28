@@ -23,6 +23,11 @@ public class ContaCorrente extends Conta {
 		if (deposito <= 0) {
 			throw new ValorNegativoException();
 		}
+		
 		this.saldo = this.saldo + deposito;
+	}
+	public void realizatransferencia(Conta destino,double valordatransferencia) {
+		this.saldo = this.saldo - valordatransferencia;
+		destino.saldo = destino.saldo + valordatransferencia;
 	}
 }

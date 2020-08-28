@@ -34,6 +34,10 @@ public class ContaPoupanca extends Conta {
 	public void realizadeposito(double deposito) {
 		this.saldo = this.saldo + deposito;
 	}
+	public void realizatransferencia(Conta destino,double valordatransferencia) {
+		this.saldo = this.saldo - valordatransferencia;
+		destino.saldo = destino.saldo + valordatransferencia;
+	}
 
 	public void renderjuros(double juros) throws JurosException, SaldoException {
 		if (juros > 100 || juros < 0.1) {
