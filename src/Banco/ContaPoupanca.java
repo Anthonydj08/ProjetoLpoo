@@ -35,8 +35,12 @@ public class ContaPoupanca extends Conta {
 		this.saldo = this.saldo + deposito;
 	}
 	public void realizatransferencia(Conta destino,double valordatransferencia) {
-		this.saldo = this.saldo - valordatransferencia;
-		destino.saldo = destino.saldo + valordatransferencia;
+		if(this.saldo - valordatransferencia>=0) {
+			this.saldo = this.saldo - valordatransferencia;
+			destino.saldo = destino.saldo + valordatransferencia;
+			}else {
+				System.out.println("A conta não tem este valor para transferir");
+			}
 	}
 
 	public void renderjuros(double juros) throws JurosException, SaldoException {
