@@ -71,12 +71,14 @@ public class Teste {
                                     double valor_Saque = scanner.nextDouble();
                                     lista.get(i).realizasaque(valor_Saque);
                                     System.out.println("Novo saldo: " + lista.get(i).getSaldo());
+                                    System.out.println("saque efetuado");
                                 }
                                 if (tipo_De_Conta == 2 && lista.get(i) instanceof ContaPoupanca) {
                                     System.out.println("Valor do saque:");
                                     double valor_Saque = scanner.nextDouble();
                                     lista.get(i).realizasaque(valor_Saque);
                                     System.out.println("Novo saldo: " + lista.get(i).getSaldo());
+                                    System.out.println("saque efetuado");
                                 }
                             } else {
                                 System.out.println("Opção incorreta!");
@@ -99,12 +101,14 @@ public class Teste {
                                     double valor_Deposito = scanner.nextDouble();
                                     lista.get(i).realizadeposito(valor_Deposito);
                                     System.out.println("Novo saldo: " + lista.get(i).getSaldo());
+                                    System.out.println("Deposito efetuado");
                                 }
                                 if (tipo_De_Conta == 2 && lista.get(i) instanceof ContaPoupanca) {
                                     System.out.println("Valor do deposito:");
                                     double valor_Deposito = scanner.nextDouble();
                                     lista.get(i).realizadeposito(valor_Deposito);
                                     System.out.println("Novo saldo: " + lista.get(i).getSaldo());
+                                    System.out.println("Deposito efetuado");
                                 }
                             } else {
                                 System.out.println("Opção incorreta!");
@@ -127,38 +131,36 @@ public class Teste {
                             if (tipo_De_Conta == 1 || tipo_De_Conta == 2) {
                                 if (tipo_De_Conta == 1 && lista.get(i) instanceof ContaCorrente) {
                                     if (tipo_De_Conta == 1 && lista.get(i) instanceof ContaCorrente) {
-                                        ContaCorrente conta_origem = (ContaCorrente) lista.get(i);
                                         System.out.println("CPF do titular de detino");
                                         String busca_Destino = scanner.next();
                                         System.out.println("Transferir para:\n 1 - Corrente\n 2 - Poupança");
                                         int tipo_De_Conta_Destino = scanner.nextInt();
                                         for (int j = 0; j < lista.size(); j++) {
                                             if (busca_Destino.equals(lista.get(j).getTitular().getCpf())) {
+                                                verifica_Destino = true;
                                                 if (tipo_De_Conta_Destino == 1 || tipo_De_Conta_Destino == 2) {
                                                     if (tipo_De_Conta_Destino == 1
                                                             && lista.get(j) instanceof ContaCorrente) {
                                                         ContaCorrente conta_Destino = (ContaCorrente) lista.get(j);
                                                         System.out.println("Valor da transfencia:");
                                                         double valor_Transferencia = scanner.nextDouble();
-                                                        conta_origem.realizatransferencia(conta_Destino,
+                                                        lista.get(i).realizatransferencia(conta_Destino,
                                                                 valor_Transferencia);
-                                                        System.out.println("Saldo Origem: " + conta_origem.getSaldo()
-                                                                + " Conta Destino: " + conta_Destino.getSaldo());
+                                                        System.out.println("Transação efetuada");
                                                     }
                                                     if (tipo_De_Conta_Destino == 2
                                                             && lista.get(j) instanceof ContaPoupanca) {
                                                         ContaPoupanca conta_Destino = (ContaPoupanca) lista.get(j);
                                                         System.out.println("Valor da transfencia:");
                                                         double valor_Transferencia = scanner.nextDouble();
-                                                        conta_origem.realizatransferencia(conta_Destino,
+                                                        lista.get(i).realizatransferencia(conta_Destino,
                                                                 valor_Transferencia);
-                                                        System.out.println("Saldo Origem: " + conta_origem.getSaldo()
-                                                                + " Conta Destino: " + conta_Destino.getSaldo());
+                                                        System.out.println("Transação efetuada");
                                                     }
                                                 } else {
                                                     System.out.println("Opção da conta de destino incorreta!");
                                                 }
-                                            } 
+                                            }
                                             if (j == (lista.size() - 1) && verifica_Destino == false) {
                                                 System.out.println("CPF do titular de destino não Encontrado!");
                                             }
@@ -166,7 +168,6 @@ public class Teste {
                                     }
                                 }
                                 if (tipo_De_Conta == 2 && lista.get(i) instanceof ContaPoupanca) {
-                                    ContaPoupanca conta_origem = (ContaPoupanca) lista.get(i);
                                     System.out.println("CPF do titular de detino");
                                     String busca_Destino = scanner.next();
                                     System.out.println("Transferir para:\n 1 - Corrente\n 2 - Poupança");
@@ -180,25 +181,23 @@ public class Teste {
                                                     ContaCorrente conta_Destino = (ContaCorrente) lista.get(j);
                                                     System.out.println("Valor da transfencia:");
                                                     double valor_Transferencia = scanner.nextDouble();
-                                                    conta_origem.realizatransferencia(conta_Destino,
+                                                    lista.get(i).realizatransferencia(conta_Destino,
                                                             valor_Transferencia);
-                                                    System.out.println("Saldo Origem: " + conta_origem.getSaldo()
-                                                            + " Conta Destino: " + conta_Destino.getSaldo());
+                                                    System.out.println("Transação efetuada");
                                                 }
                                                 if (tipo_De_Conta_Destino == 2
                                                         && lista.get(j) instanceof ContaPoupanca) {
                                                     ContaPoupanca conta_Destino = (ContaPoupanca) lista.get(j);
                                                     System.out.println("Valor da transfencia:");
                                                     double valor_Transferencia = scanner.nextDouble();
-                                                    conta_origem.realizatransferencia(conta_Destino,
+                                                    lista.get(i).realizatransferencia(conta_Destino,
                                                             valor_Transferencia);
-                                                    System.out.println("Saldo Origem: " + conta_origem.getSaldo()
-                                                            + " Conta Destino: " + conta_Destino.getSaldo());
+                                                    System.out.println("Transação efetuada");
                                                 }
                                             } else {
                                                 System.out.println("Opção da conta de destino incorreta!");
                                             }
-                                        } 
+                                        }
                                         if (j == (lista.size() - 1) && verifica_Destino == false) {
                                             System.out.println("CPF do titular de destino não Encontrado!");
                                         }
