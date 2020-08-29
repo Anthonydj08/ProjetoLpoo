@@ -29,7 +29,7 @@ public class ContaCorrente extends Conta {
 	}
 
 	public void realizatransferencia(Conta destino, double valordatransferencia) throws TransferenciaException {
-		if (this.saldo - valordatransferencia >= 0) {
+		if (this.saldo - valordatransferencia < 0) {
 			throw new TransferenciaException();
 		} else {
 			this.saldo = this.saldo - valordatransferencia;

@@ -2,6 +2,7 @@ package Banco;
 
 import Exceptions.JurosException;
 import Exceptions.SaldoException;
+import Exceptions.TransferenciaException;
 import Exceptions.ValorNegativoException;
 
 public class ContaPoupanca extends Conta {
@@ -34,13 +35,13 @@ public class ContaPoupanca extends Conta {
 	public void realizadeposito(double deposito) {
 		this.saldo = this.saldo + deposito;
 	}
-	public void realizatransferencia(Conta destino,double valordatransferencia) {
-		if(this.saldo - valordatransferencia>=0) {
+	public void realizatransferencia(Conta destino,double valordatransferencia) throws TransferenciaException {
+		if (this.saldo - valordatransferencia < 0) {
+			throw new TransferenciaException();
+		} else {
 			this.saldo = this.saldo - valordatransferencia;
 			destino.saldo = destino.saldo + valordatransferencia;
-			}else {
-				System.out.println("A conta não tem este valor para transferir");
-			}
+		}
 	}
 
 	public void renderjuros(double juros) throws JurosException, SaldoException {
