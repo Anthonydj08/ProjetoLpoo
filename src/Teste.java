@@ -119,8 +119,11 @@ public class Teste {
                     busca = scanner.next();
                     System.out.println("Transferir da:\n 1 - Corrente\n 2 - Poupança");
                     tipo_De_Conta = scanner.nextInt();
+                    boolean verifica_Origem = false;
+                    boolean verifica_Destino = false;
                     for (int i = 0; i < lista.size(); i++) {
                         if (busca.equals(lista.get(i).getTitular().getCpf())) {
+                            verifica_Origem = true;
                             if (tipo_De_Conta == 1 || tipo_De_Conta == 2) {
                                 if (tipo_De_Conta == 1 && lista.get(i) instanceof ContaCorrente) {
                                     if (tipo_De_Conta == 1 && lista.get(i) instanceof ContaCorrente) {
@@ -156,7 +159,7 @@ public class Teste {
                                                     System.out.println("Opção da conta de destino incorreta!");
                                                 }
                                             } 
-                                            if (j == (lista.size() - 1)) {
+                                            if (j == (lista.size() - 1) && verifica_Destino == false) {
                                                 System.out.println("CPF do titular de destino não Encontrado!");
                                             }
                                         }
@@ -170,6 +173,7 @@ public class Teste {
                                     int tipo_De_Conta_Destino = scanner.nextInt();
                                     for (int j = 0; j < lista.size(); j++) {
                                         if (busca_Destino.equals(lista.get(j).getTitular().getCpf())) {
+                                            verifica_Destino = true;
                                             if (tipo_De_Conta_Destino == 1 || tipo_De_Conta_Destino == 2) {
                                                 if (tipo_De_Conta_Destino == 1
                                                         && lista.get(j) instanceof ContaCorrente) {
@@ -195,7 +199,7 @@ public class Teste {
                                                 System.out.println("Opção da conta de destino incorreta!");
                                             }
                                         } 
-                                        if (j == (lista.size() - 1)) {
+                                        if (j == (lista.size() - 1) && verifica_Destino == false) {
                                             System.out.println("CPF do titular de destino não Encontrado!");
                                         }
                                     }
@@ -204,7 +208,7 @@ public class Teste {
                                 System.out.println("Opção da conta de origem incorreta!");
                             }
                         }
-                        if (i == (lista.size() - 1)) {
+                        if (i == (lista.size() - 1) && verifica_Origem == false) {
                             System.out.println("CPF do titular de origem não Encontrado!");
                         }
                     }
