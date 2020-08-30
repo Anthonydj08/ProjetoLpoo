@@ -24,7 +24,7 @@ public class Teste {
 
         do {
             System.out.println(
-                    "Selecione uma das opções:\n 1 - Cadastrar Conta\n 2 - Realizar Saque\n 3 - Realizar Deposito\n 4 - Realizar Transferência\n 5 - Consultar Cliente\n 6 - Listar Clientes por agência\n 7 - Encerrar Conta\n 0 - sair");
+                    "Selecione uma das opções:\n 1 - Cadastrar Conta\n 2 - Realizar Saque\n 3 - Realizar Deposito\n 4 - Realizar Transferência\n 5 - Render juros \n 6 - Consultar Cliente\n 7 - Listar Clientes por agência\n 8 - Encerrar Conta\n 0 - sair");
             opcao = scanner.nextInt();
             switch (opcao) {
                 case 1:
@@ -250,6 +250,17 @@ public class Teste {
                     }
                     break;
                 case 5:
+                    System.out.println("CPF do titular: ");
+                    busca = scanner.next();
+                    for (int i = 0; i < lista.size(); i++) {
+                        if (busca.equals(lista.get(i).getTitular().getCpf()) && lista.get(i) instanceof ContaPoupanca) {
+                            ContaPoupanca poupanca = (ContaPoupanca) lista.get(i);
+                            // poupanca.renderjuros();
+                            System.out.println("Operação efetuada, Saldo atual: " + poupanca.getSaldo());
+                        }
+                    }
+                    break;
+                case 6:
                     System.out.println("CPF do Titular que deseja consultar:");
                     busca = scanner.next();
                     for (int i = 0; i < lista.size(); i++) {
@@ -285,7 +296,7 @@ public class Teste {
                         }
                     }
                     break;
-                case 6:
+                case 7:
                     try {
                         System.out.println("Número da agência que deseja listar os titulares:");
                         busca = scanner.next();
@@ -317,7 +328,7 @@ public class Teste {
                         System.out.println("Tipo de caractere incorreto.");
                     }
                     break;
-                case 7:
+                case 8:
                     System.out.println("CPF do Titular que deseja Cancelar a conta:");
                     busca = scanner.next();
                     System.out.println("Cancelar a:\n 1 - Corrente\n 2 - Poupança");
