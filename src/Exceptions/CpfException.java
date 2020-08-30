@@ -67,4 +67,8 @@ public class CpfException extends Exception {
                 + CPF.substring(9, 11));
     }
 
+    @Override
+    public String getMessage() {
+        return "CPF inválido.";
+    }
 }

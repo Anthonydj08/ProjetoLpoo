@@ -1,7 +1,5 @@
 package Banco;
 
-import Exceptions.CpfException;
-
 public class Cliente {
 
 	private String rg;
@@ -21,9 +19,7 @@ public class Cliente {
 	}
 
 	public void setCpf(String cpf) {
-		if (CpfException.isCPF(cpf)) {
-			this.cpf = cpf;
-		}
+		this.cpf = cpf;
 	}
 
 	public String getNome() {
