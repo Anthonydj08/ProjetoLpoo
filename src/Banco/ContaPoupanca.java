@@ -44,13 +44,13 @@ public class ContaPoupanca extends Conta {
 		}
 	}
 
-	public void renderjuros(double juros) throws JurosException, SaldoException {
-		if (juros > 100 || juros < 0.1) {
+	public void renderjuros() throws JurosException, SaldoException {
+		if (this.juros > 100 || this.juros < 0.1) {
 			throw new JurosException();
-		} else if (saldo <= 0) {
+		} else if (this.saldo <= 0) {
 			throw new SaldoException();
 		} else {
-			this.saldo = saldo + (juros * saldo / 100);
+			this.saldo = this.saldo + (this.juros * this.saldo / 100);
 		}
 
 	}

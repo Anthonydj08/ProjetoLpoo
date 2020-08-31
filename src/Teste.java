@@ -33,7 +33,7 @@ public class Teste {
                     if (tipo_De_Conta == 1 || tipo_De_Conta == 2) {
                         try {
                             System.out.println("Número da agência banco:");
-                            String numero_Da_Agencia = scanner.next();
+                            int numero_Da_Agencia = scanner.nextInt();
                             System.out.println("Nome agência:");
                             String nome_Da_Agencia = scanner.next();
                             System.out.println("Nome do titular:");
@@ -46,7 +46,7 @@ public class Teste {
                             System.out.println("RG do titular:");
                             String rg_Do_Titular = scanner.next();
                             System.out.println("Numero da conta:");
-                            String numero_Da_Conta = scanner.next();
+                            int numero_Da_Conta = scanner.nextInt();
                             System.out.println("Saldo da conta:");
                             double saldo = scanner.nextDouble();
                             Banco banco = new Banco(numero_Da_Agencia, nome_Da_Agencia);
@@ -255,7 +255,7 @@ public class Teste {
                     for (int i = 0; i < lista.size(); i++) {
                         if (busca.equals(lista.get(i).getTitular().getCpf()) && lista.get(i) instanceof ContaPoupanca) {
                             ContaPoupanca poupanca = (ContaPoupanca) lista.get(i);
-                            // poupanca.renderjuros();
+                            poupanca.renderjuros();
                             System.out.println("Operação efetuada, Saldo atual: " + poupanca.getSaldo());
                         }
                     }
@@ -299,9 +299,9 @@ public class Teste {
                 case 7:
                     try {
                         System.out.println("Número da agência que deseja listar os titulares:");
-                        busca = scanner.next();
+                        int busca_numero_agencia = scanner.nextInt();
                         for (int i = 0; i < lista.size(); i++) {
-                            if (busca.equals(lista.get(i).getBanco().getAgencia())) {
+                            if (busca_numero_agencia == lista.get(i).getBanco().getAgencia()) {
 
                                 if (lista.get(i) instanceof ContaCorrente) {
                                     ContaCorrente corrente = (ContaCorrente) lista.get(i);
