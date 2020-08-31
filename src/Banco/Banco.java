@@ -2,22 +2,22 @@ package Banco;
 
 public class Banco {
 	
-	private String agencia;
-	private String nomeagencia;
+	private int agencia;
+	private int nomeagencia;
 	
-	public String getAgencia() {
+	public int getAgencia() {
 		return agencia;
 	}
-	public void setAgencia(String agencia) {
+	public void setAgencia(int agencia) {
 		this.agencia = agencia;
 	}
-	public String getNomeagencia() {
+	public int getNomeagencia() {
 		return nomeagencia;
 	}
-	public void setNomeagencia(String nomeagencia) {
+	public void setNomeagencia(int nomeagencia) {
 		this.nomeagencia = nomeagencia;
 	}
-	public Banco(String agencia, String nomeagencia) {
+	public Banco(int agencia, int nomeagencia) {
 		this.agencia = agencia;
 		this.nomeagencia = nomeagencia;
 	}
