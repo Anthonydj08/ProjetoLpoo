@@ -3,7 +3,7 @@ package Banco;
 public class Banco {
 	
 	private int agencia;
-	private int nomeagencia;
+	private String nomeagencia;
 	
 	public int getAgencia() {
 		return agencia;
@@ -11,13 +11,13 @@ public class Banco {
 	public void setAgencia(int agencia) {
 		this.agencia = agencia;
 	}
-	public int getNomeagencia() {
+	public String getNomeagencia() {
 		return nomeagencia;
 	}
-	public void setNomeagencia(int nomeagencia) {
+	public void setNomeagencia(String nomeagencia) {
 		this.nomeagencia = nomeagencia;
 	}
-	public Banco(int agencia, int nomeagencia) {
+	public Banco(int agencia, String nomeagencia) {
 		this.agencia = agencia;
 		this.nomeagencia = nomeagencia;
 	}

@@ -6,7 +6,7 @@ import Exceptions.ValorNegativoException;
 
 public class ContaCorrente extends Conta {
 
-	public ContaCorrente(String numero, double saldo, Cliente cliente, Banco banco) {
+	public ContaCorrente(int numero, double saldo, Cliente cliente, Banco banco) {
 		super(numero, saldo, cliente, banco);
 	}
 

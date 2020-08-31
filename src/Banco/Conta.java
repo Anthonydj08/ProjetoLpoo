@@ -2,15 +2,15 @@ package Banco;
 
 public abstract class Conta implements InterfaceConta {
 	
-	private String numero;
+	private int numero;
 	protected double saldo;
 	private Cliente titular;
 	private Banco banco;
 	
-	public String getNumero() {
+	public int getNumero() {
 		return numero;
 	}
-	public void setNumero(String numero) {
+	public void setNumero(int numero) {
 		this.numero = numero;
 	}
 	public double getSaldo() {
@@ -32,7 +32,7 @@ public abstract class Conta implements InterfaceConta {
 		this.banco = banco;
 	}
 	
-	public Conta(String numero, double saldo, Cliente titular, Banco banco) {
+	public Conta(int numero, double saldo, Cliente titular, Banco banco) {
 		this.numero = numero;
 		this.saldo = saldo;
 		this.titular = titular;

@@ -1,6 +1,5 @@
 package Banco;
 
-import Exceptions.JurosException;
 import Exceptions.SaldoException;
 import Exceptions.TransferenciaException;
 import Exceptions.ValorNegativoException;
@@ -17,7 +16,7 @@ public class ContaPoupanca extends Conta {
 		this.juros = juros;
 	}
 	
-	public ContaPoupanca(String numero,double saldo,Cliente cliente,Banco banco, double juros) {
+	public ContaPoupanca(int numero,double saldo,Cliente cliente,Banco banco, double juros) {
 		super(numero, saldo, cliente, banco);
 		this.juros = juros;
 	}
@@ -44,10 +43,8 @@ public class ContaPoupanca extends Conta {
 		}
 	}
 
-	public void renderjuros() throws JurosException, SaldoException {
-		if (this.juros > 100 || this.juros < 0.1) {
-			throw new JurosException();
-		} else if (this.saldo <= 0) {
+	public void renderjuros() throws SaldoException {
+		if (this.saldo <= 0) {
 			throw new SaldoException();
 		} else {
 			this.saldo = this.saldo + (this.juros * this.saldo / 100);

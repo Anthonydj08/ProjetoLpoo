@@ -2,6 +2,8 @@ import Banco.Conta;
 import Banco.ContaCorrente;
 import Banco.ContaPoupanca;
 import Exceptions.CpfException;
+import Exceptions.EncerrarException;
+import Exceptions.JurosException;
 import Exceptions.SaldoException;
 import Exceptions.TransferenciaException;
 import Exceptions.ValorNegativoException;
@@ -13,8 +15,8 @@ import java.util.Scanner;
 
 public class Teste {
 
-    public static void main(String[] args)
-            throws SaldoException, ValorNegativoException, TransferenciaException, CpfException {
+    public static void main(String[] args) throws SaldoException, ValorNegativoException, TransferenciaException,
+            CpfException, JurosException, EncerrarException {
 
         Scanner scanner = new Scanner(System.in);
         ArrayList<Conta> lista = new ArrayList<Conta>(10);
@@ -24,7 +26,7 @@ public class Teste {
 
         do {
             System.out.println(
-                    "Selecione uma das opções:\n 1 - Cadastrar Conta\n 2 - Realizar Saque\n 3 - Realizar Deposito\n 4 - Realizar Transferência\n 5 - Render juros \n 6 - Consultar Cliente\n 7 - Listar Clientes por agência\n 8 - Encerrar Conta\n 0 - sair");
+                    "Selecione uma das opções:\n 1 - Cadastrar Conta\n 2 - Realizar Saque\n 3 - Realizar Deposito\n 4 - Realizar Transferência\n 5 - Render juros \n 6 - Consultar Cliente\n 7 - Listar Clientes por agência\n 8 - Encerrar Conta\n 0 - Sair");
             opcao = scanner.nextInt();
             switch (opcao) {
                 case 1:
@@ -58,6 +60,9 @@ public class Teste {
                             if (tipo_De_Conta == 2) {
                                 System.out.println("Juros da conta:");
                                 double juros = scanner.nextDouble();
+                                if (juros > 100 || juros < 0.1) {
+                                    throw new JurosException();
+                                }
                                 Conta conta = new ContaPoupanca(numero_Da_Conta, saldo, titular, banco, juros);
                                 lista.add(conta);
                             }
@@ -336,12 +341,17 @@ public class Teste {
                     for (int i = 0; i < lista.size(); i++) {
                         if (busca.equals(lista.get(i).getTitular().getCpf())) {
                             if (tipo_De_Conta == 1 || tipo_De_Conta == 2) {
-                                if (tipo_De_Conta == 1 && lista.get(i) instanceof ContaCorrente) {
-                                    lista.remove(i);
+                                if (lista.get(i).getSaldo() > 0) {
+                                    throw new EncerrarException();
+                                } else {
+                                    if (tipo_De_Conta == 1 && lista.get(i) instanceof ContaCorrente) {
+                                        lista.remove(i);
+                                    }
+                                    if (tipo_De_Conta == 2 && lista.get(i) instanceof ContaPoupanca) {
+                                        lista.remove(i);
+                                    }
                                 }
-                                if (tipo_De_Conta == 2 && lista.get(i) instanceof ContaPoupanca) {
-                                    lista.remove(i);
-                                }
+
                             } else {
                                 System.out.println("Opção incorreta!");
                             }
