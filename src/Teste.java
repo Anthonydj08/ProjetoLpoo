@@ -19,7 +19,7 @@ public class Teste {
             CpfException, JurosException, EncerrarException {
 
         Scanner scanner = new Scanner(System.in);
-        ArrayList<Conta> lista = new ArrayList<Conta>(10);
+        ArrayList<Conta> lista = new ArrayList<Conta>();
         int opcao = 0;
         int tipo_De_Conta;
         String busca;
